@@ -1,0 +1,86 @@
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+	<title>ngCircularProgress Directive</title>
+    <link rel="stylesheet" type="text/css" href="css/ng-circular-progress.css" />
+</head>
+<body ng-controller="mainController">
+    <div style="margin:0 auto;width:800px">
+    <h2>ngCircularProgress Directive</h2>
+    <div>
+        <table style="border-collapse:separate;border-spacing:10px 50px;">
+            <tbody>
+                <tr>
+                    <td>
+                        <h3>Default Properties</h3>
+                        <h4>Uses the default colors.</h4>
+                        <code>
+                            &lt;percent-display percent="21" size="60" &gt;&lt;/percent-display&gt;
+                        </code>
+                    </td>
+                    <td>
+                        <ng-circular-progress percent="21" size="60"></ng-circular-progress>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Change the colors</h3>
+                        <h4>Uses the property "colors" to change the colors.</h4>
+                        <code>
+                            &lt;percent-display percent="4" size="60" colors="#e5ebee,#66879c,#ffffff" &gt;&lt;/percent-display&gt;
+                        </code>
+                    </td>
+                    <td>
+                        <ng-circular-progress percent="4" size="60" colors="#e5ebee,#66879c,#ffffff"></ng-circular-progress>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Change the size</h3>
+                        <h4>Uses the property "size" to change the size.</h4>
+                        <code>
+                            &lt;percent-display percent="19" size="70" colors="#8a4047,#691520,#ffffff" &gt;&lt;/percent-display&gt;
+                        </code>
+                    </td>
+                    <td>
+                        <ng-circular-progress percent="19" size="70" colors="#8a4047,#691520,#ffffff"></ng-circular-progress>
+                    </td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Change the percent</h3>
+                        <h4>Click the bottom to change the percent value.</h4>
+                        <code>
+                            &lt;percent-display percent="83" size="70" colors="#8a4047,#691520,#ffffff" &gt;&lt;/percent-display&gt;
+                        </code>
+                    </td>
+                    <td>
+                        <ng-circular-progress percent="value" size="70" colors="#8a4047,#691520,#ffffff"></ng-circular-progress>
+                    </td>
+                    <td>
+                        <button ng-click="setPercent(10)">10%</button>
+                        <button ng-click="setPercent(99)">100%</button>
+                    </td>
+                </tr>                         
+            </tbody>
+        </table>
+    </div>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+    <script src="js/ng-circular-progress.js" type="text/javascript"></script>
+	<script type="text/javascript">
+
+        angular.module('app', ['ngCircularProgress']).controller('mainController', function($scope) {
+
+            $scope.value = 83;
+
+            $scope.setPercent = function(newValue) {
+                $scope.value = newValue;
+            }
+        });
+
+	</script>
+</body>
+</html>

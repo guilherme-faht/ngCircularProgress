@@ -11,7 +11,7 @@
                               '<span></span>' +
                           '</div>' +
                       '</div>',
-            scope: { percent: '=' },
+            scope: { percent: '=', color: '=?' },
             link: function($scope, element, attrs) {  
                                 
                 var 
@@ -45,19 +45,22 @@
                         if(newPercent <= 50) {
                             deg = 180 - (newPercent / 100 * 360);
                            	sDeg = 'rotateZ(-' + deg + 'deg)';
-                            ls.css('display','none');
+                            
+                            ls.css('transform', 'rotateZ(-180deg)').css('-webkit-transform', 'rotateZ(-180deg)').css( '-moz-transform', 'rotateZ(-180deg)').css('msTransform', 'rotate(-180deg)');
                             rs.css('transform', sDeg).css('-webkit-transform', sDeg).css('-moz-transform', sDeg).css('msTransform', 'rotate(-' + deg + 'deg)');
                         } else {
                             deg = 180 - ((newPercent - 50) / 100 * 360);
                             sDeg = 'rotateZ(-' + deg + 'deg)';
-                            ls.css('display','auto');
                             ls.css('transform', sDeg).css('-webkit-transform', sDeg).css('-moz-transform', sDeg).css('msTransform', 'rotate(-' + deg + 'deg)');
                             rs.css('transform', 'rotateZ(0deg)').css('-webkit-transform', 'rotateZ(0deg)').css( '-moz-transform', 'rotateZ(0deg)').css('msTransform', 'rotate(0deg)');
                         }
-                    
                     } else {
                         console.error('Invalid percent!');
                     }
+                });
+                $scope.$watch('color', function(newColor){
+                    angular.element(el.querySelector('.circular-progress')).css('width', sz).css('height', sz).css('font-size', fs).css('background-color', colors[0]).css('color', newColor );
+                    angular.element(el.querySelectorAll('.circular-progress span')).css('background-color', newColor );
                 });
             }
         }

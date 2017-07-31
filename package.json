@@ -1,0 +1,24 @@
+{
+    "name": "ngcircularprogress",
+    "version": "0.6.0",
+    "description": "A directive to display graphically progress percentage. Yes it is very cool!",
+    "main": "ng-circular-progress.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+	"keywords": [
+        "progress",
+        "circular",
+        "plot",
+        "percent"
+    ],
+    "author": {
+        "name": "\"gurux\" Guilherme Faht"
+    },
+	"homepage": "https://github.com/guilherme-faht/ngCircularProgress#readme",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/guilherme-faht/ngCircularProgress.git"
+	}
+}
